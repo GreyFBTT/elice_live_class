@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <h1>Script tag</h1>
+    1+1
+    <script>
+      document.write(1 + 1);
+    </script>
+    <h1>Event</h1>
+    <input
+      type="button"
+      value="h1"
+      onclick="
+        alert('h1');
+        speechSynthesis.speak(new SpeechSynthesisUtterance('뭐야'));
+        "
+    />
+  </body>
+</html>
