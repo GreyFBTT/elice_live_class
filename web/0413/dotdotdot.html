@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style>
+      #expand {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    JavaScipt is
+    <span
+      style="background-color: grey; cursor: pointer"
+      onclick="
+      document.querySelector('#expand').style.display ='inline';
+      this.style.display ='none';
+      "
+      >...</span
+    >
+    <span id="expand"
+      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis autem
+      incidunt, placeat deserunt reprehenderit minima eum eligendi quia possimus
+      odio at quae porro eos est! Maiores vel enim consequuntur sequi.</span
+    >
+
+    <hr />
+
+    JavaScipt is
+    <span
+      style="background-color: grey; cursor: pointer"
+      onclick="
+      document.querySelector('#content').innerHTML =`Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis autem
+      incidunt, placeat deserunt reprehenderit minima eum eligendi quia possimus
+      odio at quae porro eos est! Maiores vel enim consequuntur sequi.`;
+      this.style.display ='none';
+      "
+      >...</span
+    >
+    <span id="content"></span>
+  </body>
+</html>
