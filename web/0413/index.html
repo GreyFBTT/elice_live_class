@@ -54,13 +54,21 @@
               as[i].style.color = 'black';
           }
       }
+
+      function dayNight(mode) {
+        if (mode === 'night') {
+          night();
+        } else {
+          day();
+        }
+      }
     </script>
     <input type="button" value="night" onclick="
         if (this.value === 'night') {
-            night();
+            dayNight('night');
           this.value = 'day';
         } else {
-            day();
+            dayNight('day');
             this.value ='night';
         }
       "/>
