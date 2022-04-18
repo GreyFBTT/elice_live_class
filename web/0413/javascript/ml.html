@@ -51,6 +51,8 @@
   async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
+
+    // 야간이 80퍼센트 이상일 때 야간모드로, else 주간모드로
     console.log("prediction", prediction[0].probability);
     if (prediction[0].probability > 0.8) {
       document.querySelector("body").style.backgroundColor = "white";
@@ -59,11 +61,15 @@
       document.querySelector("body").style.backgroundColor = "black";
       document.querySelector("body").style.color = "white";
     }
+
+    // 여기가 prediction 수치를 나타내는 것으로 보임
     for (let i = 0; i < maxPredictions; i++) {
       const classPrediction =
         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
       labelContainer.childNodes[i].innerHTML = classPrediction;
     }
   }
+
+  //시작하자마자 웹캠 실행
   init();
 </script>
