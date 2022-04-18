@@ -4,72 +4,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Web - welcome</title>
     <meta charset="utf-8" />
-    <Style>
-      h1 {
-        border-bottom: 10px solid green;
-        padding-bottom : 20px;
-      }
-      h1 a {
-        text-decoration : none;
-      }
-
-      ol {
-        border-right: 10px solid pink;
-      }
-
-      @media all and (min-width: 480px) {
-        #container {
-          display : grid;
-          grid-template-columns : 150px 1fr;
-
-        }
-      }
-    </Style>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EDW0L832G"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  gtag('config', 'G-6EDW0L832G');
-</script>
+    <link href="style.css" rel="stylesheet">
+  <script src="daynight.js"></script>
   </head>
   
   <body>
-    <div id="target">toggle</div>
+    <!-- <div id="target">toggle</div>
     <input type="button" value="hide/show" onclick="$('#target').toggle();">
-    //JQuery를 이용한 토글 버튼
-    <script>
-      function night() {
-        // document.querySelector('body').style.backgroundColor = 'black';
-        // document.querySelector('body').style.color = 'white';
-        $('body').css('background-color', 'black');
-          $('body').css('color','white'); //JQuery 사용
-          // let as = document.querySelectorAll('a');
-          // for (let i=0; i<as.length; i++) {
-          //   as[i].style.color = 'white';
-          // }
-          $('a').css('color','white');
-      }
-
-      function day() {
-        document.querySelector('body').style.backgroundColor = 'white';
-          document.querySelector('body').style.color = 'black';
-          let as = document.querySelectorAll('a');
-          for (let i=0; i<as.length; i++) {
-              as[i].style.color = 'black';
-          }
-      }
-
-      function dayNight(mode) {
-        if (mode === 'night') {
-          night();
-        } else {
-          day();
-        }
-      }
-    </script>
+    // JQuery를 이용한 토글 버튼 -->
     <input type="button" value="night" onclick="
         if (this.value === 'night') {
             dayNight('night');
