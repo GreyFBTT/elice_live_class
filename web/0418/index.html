@@ -5,22 +5,26 @@
     <title>Web - welcome</title>
     <meta charset="utf-8" />
     <link href="style.css" rel="stylesheet">
-  <script src="daynight.js"></script>
+  <script type="module">
+    import {dayNight, day} from './daynight.js'; // export 한 것을 사용
+    function listener(evt) {
+      if(evt.target.value === 'night') {
+        dayNight('night');
+        evt.target.value = 'day';
+      } else {
+        dayNight('day');
+        evt.target.value = 'night';
+      }
+    }
+    document.querySelector('#dayNightBtn').addEventListener('click',listener)
+  </script>
   </head>
   
   <body>
     <!-- <div id="target">toggle</div>
     <input type="button" value="hide/show" onclick="$('#target').toggle();">
     // JQuery를 이용한 토글 버튼 -->
-    <input type="button" value="night" onclick="
-        if (this.value === 'night') {
-            dayNight('night');
-          this.value = 'day';
-        } else {
-            dayNight('day');
-            this.value ='night';
-        }
-      "/>
+    <input type="button" id="dayNightBtn" value="night"/>
       
     <!-- <input type="button" value="night/day" onclick="
         document.querySelector('body').style.backgroundColor = 'black';

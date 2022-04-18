@@ -10,7 +10,7 @@ function night() {
   // $('a').css('color','white');
 }
 
-function day() {
+export function day() {
   document.querySelector("body").style.backgroundColor = "white";
   document.querySelector("body").style.color = "black";
   let as = document.querySelectorAll("a");
@@ -19,7 +19,9 @@ function day() {
   }
 }
 
-function dayNight(mode) {
+export function dayNight(mode) {
+  // dayNight 은 html에서 사용하나 위에 night, day는 여기서만 사용
+  // export를 붙여 외부에서 사용한다 한거임.
   if (mode === "night") {
     night();
   } else {
