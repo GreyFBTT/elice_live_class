@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <title>Web - welcome</title>
-    <meta charset="utf-8" />
-    <link href="style.css" rel="stylesheet">
-  <script type="module">
-    import {dayNight, day} from './daynight.js'; // export 한 것을 사용
-    function listener(evt) {
-      if(evt.target.value === 'night') {
-        dayNight('night');
-        evt.target.value = 'day';
-      } else {
-        dayNight('day');
-        evt.target.value = 'night';
-      }
-    }
-    document.querySelector('#dayNightBtn').addEventListener('click',listener)
-  </script>
+    <script>
+      let topics = [
+        { id: 1, title: "html", body: "html is .." },
+        { id: 2, title: "css", body: "css is .." },
+        { id: 3, title: "js", body: "js is .." },
+      ];
+    </script>
   </head>
-  
   <body>
-    <!-- <div id="target">toggle</div>
-    <input type="button" value="hide/show" onclick="$('#target').toggle();">
-    // JQuery를 이용한 토글 버튼 -->
-    <input type="button" id="dayNightBtn" value="night"/>
-      
-    <!-- <input type="button" value="night/day" onclick="
-        document.querySelector('body').style.backgroundColor = 'black';
-        document.querySelector('body').style.color = 'white';
-      "/>
-    <input type="button" value="day" onclick="
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
-      "/> -->
-    <h1><a href="index.html">WEB</a></h1>
-
-    <div id="container">
-      <ol>
-        <li><a href="1.html">html</a></li>
-        <a href="2.html">
-          <li>css</li>
-        </a>
-        <li><a href="3.html">javascript</a></li>
-      </ol>
-      <div>
-        <h2>Welcome</h2>
-        Hello, WEB!!
-      </div>
-    </div>
-        
+    <h1>
+      <a
+        href="index.html"
+        onclick="
+    event.preventDefault();
+    document.querySelector('article').innerHTML = `<h2>Welcome</h2>Hello, WEB!`;
+    "
+        >WEB</a
+      >
+    </h1>
+    <nav>
+      <ol></ol>
+    </nav>
+    <article>
+      <h2>Welcome</h2>
+      Hello, WEB
+    </article>
+    <script>
+      // 객체에 따른 리스트 변경
+      //   function nav() {}
+      //   let nav = function( {}
+      let nav = () => {
+        let navTag = "";
+        for (let i = 0; i < topics.length; i++) {
+          navTag =
+            navTag +
+            `<li>
+                <a href="${topics[i].id}.html" id="${topics[i].id}" onclick="
+                    event.preventDefault();
+                    for(let i=0; i<topics.length; i++){
+                        if(topics[i].id === Number(event.target.id)){
+                            document.querySelector('article').innerHTML = '<h2>${topics[i].title}</h2>${topics[i].body}';
+                            break;
+                        }
+                     }
+            ">${topics[i].title}</a></li>`;
+        }
+        document.querySelector("nav ol").innerHTML = navTag;
+      };
+      nav();
+    </script>
+  </body>
 </html>
+
+<!-- 다시 봐라 왜 안되나 시발.... -->
