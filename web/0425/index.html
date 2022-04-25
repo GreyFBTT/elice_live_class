@@ -90,6 +90,21 @@
         e.preventDefault();
         const t = e.target.title.value;
         const b = e.target.body.value;
+        fetch("http://localhost:3000/topics", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", //내가 JSON으로 바꿨으니 이거 JSON이야! 라고 말하는 것
+          },
+          body: JSON.stringify({ title: t, body: b }), //문자열로 바꿔준다. 타입은 JSON
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data); // 지금 추가한 데이터가 보임
+            nav();
+            selectedId = data.id; // 추가한 데이터의 id가 selectedId 가 됨.
+            read();
+          });
+        return;
         const newTopic = { id: nextId, title: t, body: b };
         topics.push(newTopic);
         nav();
